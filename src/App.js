@@ -21,6 +21,7 @@ import WebflowSection from './components/WebFlowSection/WebFlowSection';
 import MembershipLevels from './components/MembershipLevels/MembershipLevels';
 import Carousel from './components/Carousel/Carousel';
 import FAQsSection from './components/FAQsSection/FAQsSection';
+import LoginPage from './pages/LoginPage';
 
 
 import image1 from './assets/images/carousel1.jpg';
@@ -41,31 +42,36 @@ function App() {
         </header>
 
         <main>
-          <div>
-            
-            <HeaderSection
-              mainTitle="TurboWeb"
-              subTitle="A design and development agency, with a special touch."
-              buttonText="See plans"
-              buttonLink="/plans"
-            />
-            <div className="carousel-wrapper">
-            <Carousel images={images} />
-            </div>
-            <BannerSlider />
-            <AnimatedIcons />
-            <TestimonialCard/>
-            <FeatureSection/>
-            <BenefitsSection/>
-            <RecentWorkSection/>
-            <SecondCarousel/>
-            <FunkyScribblesSection/>
-            <ApplicationsSection/>
-            <MembershipLevels/>
-            <PricingSection/>
-            <FAQsSection/>
-            <WebflowSection/>
-          </div>
+          <Routes>
+            <Route path="/" element={
+              <>
+                <HeaderSection
+                  mainTitle="TurboWeb"
+                  subTitle="A design and development agency, with a special touch."
+                  buttonText="See plans"
+                  buttonLink="/plans"
+                />
+                <div className="carousel-wrapper">
+                  <Carousel images={images} />
+                </div>
+                <BannerSlider />
+                <AnimatedIcons />
+                <TestimonialCard/>
+                <FeatureSection/>
+                <BenefitsSection/>
+                <RecentWorkSection/>
+                <SecondCarousel/>
+                <FunkyScribblesSection/>
+                <ApplicationsSection/>
+                <MembershipLevels/>
+                <PricingSection/>
+                <FAQsSection/>
+                <WebflowSection/>
+              </>
+            } />
+
+            <Route path="/login" element={<LoginPage />} />
+          </Routes>
         </main>
       </Router>
     </div>
