@@ -21,6 +21,7 @@ import WebflowSection from './components/WebFlowSection/WebFlowSection';
 import MembershipLevels from './components/MembershipLevels/MembershipLevels';
 import Carousel from './components/Carousel/Carousel';
 import FAQsSection from './components/FAQsSection/FAQsSection';
+import Footer from './components/Footer/Footer';
 import LoginPage from './pages/LoginPage';
 
 
@@ -46,7 +47,7 @@ function App() {
             <Route path="/" element={
               <>
                 <HeaderSection
-                  mainTitle="TurboWeb"
+                  mainTitle="WeHook"
                   subTitle="A design and development agency, with a special touch."
                   buttonText="See plans"
                   buttonLink="/plans"
@@ -67,9 +68,10 @@ function App() {
                 <PricingSection/>
                 <FAQsSection/>
                 <WebflowSection/>
+                <Footer/>
+                
               </>
             } />
-
             <Route path="/login" element={<LoginPage />} />
           </Routes>
         </main>

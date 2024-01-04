@@ -1,6 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      // Hacer la llamada a tu backend para autenticar al usuario
+      const response = await fetch('url_de_tu_backend/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      // Verificar si la autenticación fue exitosa
+      if (response.ok) {
+        // Redirigir al usuario al dashboard
+        navigate('/dashboard');
+      } else {
+        // Manejar caso en el que la autenticación falla (mostrar mensaje de error, etc.)
+        console.error('Error al iniciar sesión');
+      }
+    } catch (error) {
+      console.error('Error al iniciar sesión', error);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div className="mb-8 text-center">
@@ -19,6 +48,7 @@ function LoginPage() {
             id="username"
             type="text"
             placeholder=""
+            aria-label="Username"
           />
         </div>
         <div className="mb-6">
@@ -30,12 +60,19 @@ function LoginPage() {
             id="password"
             type="password"
             placeholder="••••••••"
+            aria-label="Password"
           />
+          <p className="text-sm text-blue-500 cursor-pointer">
+            <a href="/olvido-contrasena" aria-label="Forgot Password">
+              ¿Olvidaste tu contraseña?
+            </a>
+          </p>
         </div>
         <div className="flex items-center justify-center">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
+            onClick={handleLogin}
           >
             LOG IN
           </button>
