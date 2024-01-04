@@ -22,7 +22,7 @@ function LoginPage() {
         // Redirigir al usuario al dashboard
         navigate('/dashboard');
       } else {
-        // Manejar caso en el que la autenticación falla (mostrar mensaje de error, etc.)
+
         console.error('Error al iniciar sesión');
       }
     } catch (error) {
