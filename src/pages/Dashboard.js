@@ -1,6 +1,6 @@
 import React from 'react';
-import Sidebar from './Sidebar';
-import DesignOptions from './DesignOptions';
+import Sidebar from '../components/Sidebar/Sidebar';  // Cambié la ruta de importación
+import DesignOptions from '../components/DesignOptions/DesignOptions';  // Cambié la ruta de importación
 
 function Dashboard() {
   return (

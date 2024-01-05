@@ -23,6 +23,7 @@ import Carousel from './components/Carousel/Carousel';
 import FAQsSection from './components/FAQsSection/FAQsSection';
 import Footer from './components/Footer/Footer';
 import LoginPage from './pages/LoginPage';
+import Dashboard from './pages/Dashboard';
 
 
 import image1 from './assets/images/carousel1.jpg';
@@ -75,6 +76,7 @@ function App() {
               </>
              } />
              <Route path="/login" element={<LoginPage />} />
+             <Route path="/dashboard" element={<Dashboard />} />
            </Routes>
          </main>
        </Router>

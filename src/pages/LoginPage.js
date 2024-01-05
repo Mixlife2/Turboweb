@@ -1,40 +1,30 @@
 import React, { useState } from 'react';
+import { supabase } from '../lib/api';
 import { useNavigate } from 'react-router-dom';
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = 'TU_URL_SUPABASE';
-const supabaseAnonKey = 'TU_CLAVE_ANON_SUPABASE';
-const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
 
 function LoginPage() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleLogin = async () => {
     try {
-      const { data, error } = await supabaseClient.auth.signIn({
-        email: username,
+      console.log(supabase);
+      const { user, error } = await supabase.auth.signIn({
+        email,
         password,
       });
-
+  
       if (error) {
-        console.error('Error al iniciar sesión:', error);
-        // Maneja los errores de inicio de sesión de manera adecuada, por ejemplo, muestra mensajes de error
+        console.error('Error al iniciar sesión:', error.message);
       } else {
-        // Almacena la sesión del usuario y redirige
-        localStorage.setItem('userSession', data.user.id);
+        console.log('Inicio de sesión exitoso:', user);
         navigate('/dashboard');
       }
     } catch (error) {
-      console.error('Error al iniciar sesión:', error);
+      console.error('Error al iniciar sesión', error.message);
     }
   };
-
-  // ... resto del código de tu componente
-}
-
-
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
@@ -46,15 +36,16 @@ function LoginPage() {
       <div className="bg-pink-100 p-8 rounded-lg shadow-md w-full max-w-xs">
         <h1 className="text-2xl font-semibold mb-6 text-center">Login</h1>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
-            Name
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
+            Email
           </label>
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="username"
-            type="text"
-            placeholder=""
-            aria-label="Username"
+            id="email"
+            type="email"
+            placeholder="tu@email.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div className="mb-6">
@@ -66,7 +57,8 @@ function LoginPage() {
             id="password"
             type="password"
             placeholder="••••••••"
-            aria-label="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <p className="text-sm text-blue-500 cursor-pointer">
             <a href="/olvido-contrasena" aria-label="Forgot Password">
@@ -97,6 +89,6 @@ function LoginPage() {
       </div>
     </div>
   );
-
+}
 
 export default LoginPage;
