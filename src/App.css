@@ -7,6 +7,16 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Grifter', sans-serif; /* Cambia a tu nueva fuente */
+}
+
+.dark-mode {
+  /* Estilos específicos para el modo oscuro */
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.light-mode {
+  /* Estilos específicos para el modo diurno */
   background-color: #f4e4a8;
   color: #000000;
 }

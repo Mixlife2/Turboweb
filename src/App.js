@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
-
+import DarkModeToggle from './components/DarkModeToggle/DarkModeToggle';
 import Navbar from './components/NavBar/NavBar';
 import HeaderSection from './components/HeaderSection/HeaderSection';
 import BannerSlider from './components/BannerSlider/BannerSlider';
@@ -34,11 +34,13 @@ import image5 from './assets/images/carousel5.jpg';
 
 function App() {
   const images = [image1, image2, image3, image4, image5];
+  const [isDarkMode, setIsDarkMode] = React.useState(false);
 
   return (
-    <div className="">
+    <div className={`app ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
       <Router>
         <header className="flex justify-between items-center py-6">
+          <DarkModeToggle setIsDarkMode={setIsDarkMode} />
           <Navbar />
         </header>
 
@@ -71,13 +73,13 @@ function App() {
                 <Footer/>
                 
               </>
-            } />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-        </main>
-      </Router>
-    </div>
-  );
-}
-
-export default App;
+             } />
+             <Route path="/login" element={<LoginPage />} />
+           </Routes>
+         </main>
+       </Router>
+     </div>
+   );
+ }
+ 
+ export default App;
