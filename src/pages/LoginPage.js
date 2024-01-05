@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = 'TU_URL_SUPABASE';
+const supabaseAnonKey = 'TU_CLAVE_ANON_SUPABASE';
+const supabaseClient = createClient(supabaseUrl, supabaseAnonKey);
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -8,27 +13,28 @@ function LoginPage() {
 
   const handleLogin = async () => {
     try {
-      // Hacer la llamada a tu backend para autenticar al usuario
-      const response = await fetch('url_de_tu_backend/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
+      const { data, error } = await supabaseClient.auth.signIn({
+        email: username,
+        password,
       });
 
-      // Verificar si la autenticación fue exitosa
-      if (response.ok) {
-        // Redirigir al usuario al dashboard
-        navigate('/dashboard');
+      if (error) {
+        console.error('Error al iniciar sesión:', error);
+        // Maneja los errores de inicio de sesión de manera adecuada, por ejemplo, muestra mensajes de error
       } else {
-
-        console.error('Error al iniciar sesión');
+        // Almacena la sesión del usuario y redirige
+        localStorage.setItem('userSession', data.user.id);
+        navigate('/dashboard');
       }
     } catch (error) {
-      console.error('Error al iniciar sesión', error);
+      console.error('Error al iniciar sesión:', error);
     }
   };
+
+  // ... resto del código de tu componente
+}
+
+
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
@@ -91,6 +97,6 @@ function LoginPage() {
       </div>
     </div>
   );
-}
+
 
 export default LoginPage;
