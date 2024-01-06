@@ -65,6 +65,11 @@ function LoginPage() {
               ¿Olvidaste tu contraseña?
             </a>
           </p>
+          <p className="text-sm text-blue-500 cursor-pointer">
+            <a href="/register" aria-label="Register">
+              ¿No tienes una cuenta? Regístrate aquí.
+            </a>
+          </p>
         </div>
         <div className="flex items-center justify-center">
           <button

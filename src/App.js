@@ -24,6 +24,7 @@ import FAQsSection from './components/FAQsSection/FAQsSection';
 import Footer from './components/Footer/Footer';
 import LoginPage from './pages/LoginPage';
 import Dashboard from './pages/Dashboard';
+import Register from './pages/Register';
 
 
 import image1 from './assets/images/carousel1.jpg';
@@ -77,6 +78,7 @@ function App() {
              } />
              <Route path="/login" element={<LoginPage />} />
              <Route path="/dashboard" element={<Dashboard />} />
+             <Route path='/register' element={<Register />}  />
            </Routes>
          </main>
        </Router>
