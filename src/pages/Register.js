@@ -1,5 +1,11 @@
+import React, { useState, useCallback } from 'react';
+import { createClient } from '@supabase/supabase-js';
 
-import React, { useState } from 'react';
+// Utiliza la URL y la clave específicas de tu proyecto Supabase
+const supabaseUrl = 'https://ozazemjevobvwnklufsf.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96YXplbWpldm9idndua2x1ZnNmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDM4MTk2MzgsImV4cCI6MjAxOTM5NTYzOH0.puJW7NRnqhxcdlzCVVILi0LbeFNNDVdA9WJhJ_-QG2w';
+
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const Register = () => {
   const [formulario, setFormulario] = useState({
@@ -10,17 +16,29 @@ const Register = () => {
     gender: 'Male',
   });
 
-  const handleChange = (e) => {
-    setFormulario({
-      ...formulario,
+  const handleChange = useCallback((e) => {
+    setFormulario((prevFormulario) => ({
+      ...prevFormulario,
       [e.target.name]: e.target.value,
-    });
-  };
+    }));
+  }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Formulario enviado:', formulario);
-    // Agrega aquí la lógica para enviar los datos al servidor o realizar otras acciones
+  const handleSubmit = async () => {
+    try {
+      const { user, session, error } = await supabase.auth.signUp({
+        email: formulario.email,
+        password: formulario.password,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      console.log('Usuario registrado exitosamente:', user, session);
+
+    } catch (error) {
+      console.error('Error al registrar usuario:', error.message);
+    }
   };
 
   return (
@@ -89,30 +107,6 @@ const Register = () => {
             onChange={handleChange}
           />
         </div>
-      </div>
-      <div className="flex items-center justify-between mb-4">
-        <label className="flex items-center">
-          <input
-            type="radio"
-            name="gender"
-            className="form-radio text-blue-500"
-            value="Male"
-            checked={formulario.gender === 'Male'}
-            onChange={handleChange}
-          />
-          <span className="ml-2">Male</span>
-        </label>
-        <label className="flex items-center">
-          <input
-            type="radio"
-            name="gender"
-            className="form-radio"
-            value="Female"
-            checked={formulario.gender === 'Female'}
-            onChange={handleChange}
-          />
-          <span className="ml-2">Female</span>
-        </label>
       </div>
       <div className="text-xs text-gray-500 mb-4">
         By clicking Register, you agree on our{' '}
