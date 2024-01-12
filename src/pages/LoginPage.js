@@ -9,8 +9,8 @@ function LoginPage() {
 
   const handleLogin = async () => {
     try {
-      console.log(supabase);
-      const { user, error } = await supabase.auth.signIn({
+      console.log('Intentando iniciar sesión con:', email, password);
+      const { user, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });

@@ -30,7 +30,6 @@ function Navbar() {
   const navClass = isScrolled ? 'shadow-md' : '';
   const visibilityClass = isVisible ? 'opacity-100 transition-opacity duration-500' : 'opacity-0';
 
-  // Determina si estamos en la página de inicio o no
   const isHome = location.pathname === '/';
 
   return (

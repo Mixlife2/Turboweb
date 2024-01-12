@@ -21,6 +21,7 @@ const Register = () => {
 
   const handleSubmit = async () => {
     try {
+      console.log('Tipo de supabase.auth:', typeof supabase.auth);
       const { user, error } = await supabase.auth.signUp({
         email: formulario.email,
         password: formulario.password,
