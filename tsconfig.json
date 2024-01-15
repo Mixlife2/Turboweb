@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "target": "es5",                     // Versión de ECMAScript a la que compilar (puedes ajustar según tus necesidades)
+      "lib": ["dom", "dom.iterable", "esnext"], // Conjunto de bibliotecas que estarán disponibles en tiempo de ejecución
+      "jsx": "react",                      // Especifica el tipo de JSX que estás utilizando (react, preserve, etc.)
+      "strict": true,                      // Habilita la comprobación de tipos estricta
+      "esModuleInterop": true,              // Habilita la interoperabilidad de módulos ES
+      "skipLibCheck": true,                // Evita la verificación de librerías de definición de tipo
+      "forceConsistentCasingInFileNames": true, // Garantiza consistencia en el uso de mayúsculas y minúsculas en los nombres de archivo
+      "module": "esnext",                  // Especifica el sistema de módulos (esnext, commonjs, etc.)
+      "moduleResolution": "node",          // Especifica cómo se resuelven los módulos (node, classic, etc.)
+      "resolveJsonModule": true,           // Permite la importación de archivos JSON como módulos
+      "isolatedModules": true,             // Aísla cada archivo para obtener una mayor consistencia
+      "noEmit": true                       // No emite archivos JS, solo realiza comprobación de tipos en tiempo de compilación
+    },
+    "include": [
+      "src/**/*.ts",                       // Patrón que incluye los archivos TypeScript en la compilación
+      "src/**/*.tsx"
+    ],
+    "exclude": [
+      "node_modules"                       // Carpeta a excluir de la compilación
+    ]
+  }
+  
