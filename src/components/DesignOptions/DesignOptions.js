@@ -31,15 +31,15 @@ function DesignOptions() {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Selecciona una categoría de diseño:</h2>
-      <ul className="list-none p-0">
+      <div className="grid grid-cols-3 gap-4">
         {categories.map((category) => (
-          <li key={category.id} className="mb-2">
-            <a href={`#${category.id}`} className="text-blue-500 hover:underline">
+          <div key={category.id} className="mb-2">
+            <a href={`#${category.id}`} className="text-black hover:underline">
               {category.name}
             </a>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
