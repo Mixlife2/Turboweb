@@ -4,13 +4,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './BannerSlider.css';
 
-import logoEmpresa1 from '../../assets/logos/figma.png';
-import logoEmpresa2 from '../../assets/logos/ChatGPT.png';
-import logoEmpresa3 from '../../assets/logos/openia.png';
-import logoEmpresa4 from '../../assets/logos/supabase.png';
+const logoEmpresa1 = require('../../assets/logos/figma.png');
+const logoEmpresa2 = require('../../assets/logos/ChatGPT.png');
+const logoEmpresa3 = require('../../assets/logos/openia.png');
+const logoEmpresa4 = require('../../assets/logos/supabase.png');
 
-const BannerSlider = () => {
-  const settings = {
+
+const BannerSlider: React.FC = () => {
+  const settings: SliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -34,5 +35,15 @@ const BannerSlider = () => {
     </div>
   );
 };
+
+interface SliderSettings {
+  dots: boolean;
+  infinite: boolean;
+  speed: number;
+  slidesToShow: number;
+  slidesToScroll: number;
+  autoplay: boolean;
+  autoplaySpeed: number;
+}
 
 export default BannerSlider;
