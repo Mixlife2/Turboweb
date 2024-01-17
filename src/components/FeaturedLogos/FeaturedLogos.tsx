@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FeaturedLogos = () => {
+const FeaturedLogos: React.FC = () => {
   return (
     <div className="bg-gray-200 py-4">
       <div className="flex flex-col items-center justify-center">

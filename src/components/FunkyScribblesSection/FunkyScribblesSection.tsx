@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FunkyScribblesSection = () => {
+const FunkyScribblesSection: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col justify-center items-center">
       <div className="text-center space-y-6">

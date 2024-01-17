@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
-function AccordionItem({ title, content }) {
+interface AccordionItemProps {
+  title: string;
+  content: React.ReactNode;
+}
+
+const AccordionItem: React.FC<AccordionItemProps> = ({ title, content }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -19,10 +24,10 @@ function AccordionItem({ title, content }) {
       )}
     </div>
   );
-}
+};
 
-const FAQsSection = () => {
-  const faqs = [
+const FAQsSection: React.FC = () => {
+  const faqs: AccordionItemProps[] = [
     {
       title: "Why wouldn't I just hire a full-time designer?",
       content: (

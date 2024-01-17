@@ -1,7 +1,7 @@
 import React from 'react';
 import TestimonialCard from '../TestimonialCards/TestimonialCards';
 
-const FeatureSection = () => {
+const FeatureSection: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="flex flex-col items-center text-center">

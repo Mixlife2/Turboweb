@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 
-const HeaderSection = ({ mainTitle, subTitle, buttonText }) => {
+interface HeaderSectionProps {
+  mainTitle: string;
+  subTitle: string;
+  buttonText: string;
+}
+
+const HeaderSection: React.FC<HeaderSectionProps> = ({ mainTitle, subTitle, buttonText }) => {
   return (
     <div className="container mx-auto px-4">
       <header className="flex justify-between items-center py-6">
