@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Item from '../Item/Item';
-import './ApplicationSection.css'
+import './ApplicationSection.css';
 
-const ApplicationsSection = () => {
+const ApplicationsSection: FC = () => {
   return (
     <div id="scope-of-work" className="bg-[#FFF0EB] min-h-screen flex items-center justify-center p-10">
       <div>

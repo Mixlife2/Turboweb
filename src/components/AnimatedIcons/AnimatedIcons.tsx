@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-const AnimatedIcons = () => {
+interface IconoAnimadoProps {
+  iconClass: string;
+  texto: string;
+}
+
+const IconoAnimado: FC<IconoAnimadoProps> = ({ iconClass, texto }) => {
+  return (
+    <div className="text-center">
+      <i className={iconClass}></i>
+      <p className="text-lg">{texto}</p>
+    </div>
+  );
+};
+
+const AnimatedIcons: FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <h1 className="text-5xl font-bold mb-6">
@@ -24,15 +38,6 @@ const AnimatedIcons = () => {
           texto="Revisaremos los diseños hasta que estés 100% satisfecho."
         />
       </div>
-    </div>
-  );
-};
-
-const IconoAnimado = ({ iconClass, texto }) => {
-  return (
-    <div className="text-center">
-      <i className={iconClass}></i>
-      <p className="text-lg">{texto}</p>
     </div>
   );
 };
