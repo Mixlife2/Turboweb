@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './DarkModeToggle.css';
 
-const DarkModeToggle = ({ setIsDarkMode }) => {
-  const [isDarkMode, setLocalIsDarkMode] = useState(false);
+interface DarkModeToggleProps {
+  setIsDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const DarkModeToggle: React.FC<DarkModeToggleProps> = ({ setIsDarkMode }) => {
+  const [isDarkMode, setLocalIsDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
     const storedMode = localStorage.getItem('darkMode');
@@ -12,7 +16,7 @@ const DarkModeToggle = ({ setIsDarkMode }) => {
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setLocalIsDarkMode(newMode);
-    localStorage.setItem('darkMode', newMode);
+    localStorage.setItem('darkMode', String(newMode));
     setIsDarkMode(newMode);
   };
 

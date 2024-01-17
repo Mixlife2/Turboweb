@@ -1,6 +1,11 @@
 import React from 'react';
 
-const categories = [
+interface Category {
+  id: string;
+  name: string;
+}
+
+const categories: Category[] = [
   { id: 'websites', name: 'Websites' },
   { id: 'mobileApps', name: 'Mobile Apps' },
   { id: 'logosBranding', name: 'Logos & Branding' },
@@ -27,7 +32,7 @@ const categories = [
   { id: 'icons', name: 'Icons' },
 ];
 
-function DesignOptions() {
+const DesignOptions: React.FC = () => {
   return (
     <div>
       <h2 className="text-2xl font-bold mb-4">Selecciona una categoría de diseño:</h2>
@@ -42,6 +47,6 @@ function DesignOptions() {
       </div>
     </div>
   );
-}
+};
 
 export default DesignOptions;

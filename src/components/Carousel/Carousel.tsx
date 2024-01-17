@@ -2,10 +2,14 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './Carousel.css'; 
+import './Carousel.css';
 
-const Carousel = ({ images }) => {
-  const settings = {
+interface CarouselProps {
+  images: string[];
+}
+
+const Carousel: React.FC<CarouselProps> = ({ images }) => {
+  const settings: SliderSettings = {
     className: 'center',
     centerMode: true,
     infinite: true,
@@ -29,7 +33,7 @@ const Carousel = ({ images }) => {
         settings: {
           arrows: false,
           centerMode: true,
-          centerPadding: '200px', 
+          centerPadding: '200px',
           slidesToShow: 1,
         },
       },
@@ -54,5 +58,27 @@ const Carousel = ({ images }) => {
     </div>
   );
 };
+
+interface SliderSettings {
+  className: string;
+  centerMode: boolean;
+  infinite: boolean;
+  centerPadding: string;
+  slidesToShow: number;
+  speed: number;
+  autoplay: boolean;
+  autoplaySpeed: number;
+  responsive: ResponsiveSettings[];
+}
+
+interface ResponsiveSettings {
+  breakpoint: number;
+  settings: {
+    arrows: boolean;
+    centerMode: boolean;
+    centerPadding: string;
+    slidesToShow: number;
+  };
+}
 
 export default Carousel;
