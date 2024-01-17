@@ -2,7 +2,7 @@ import React from 'react';
 import PricingCard from '../PricingCard/PricingCard';
 import AdditionalInfo from '../AdditionalInfo/AdditionalInfo';
 
-const PricingSection = () => {
+const PricingSection: React.FC = () => {
   return (
     <div id="pricing" className="bg-gray-100 p-10">
       <div className="grid grid-cols-3 gap-4">

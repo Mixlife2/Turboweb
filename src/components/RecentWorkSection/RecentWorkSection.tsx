@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RecentWorkSection = () => {
+const RecentWorkSection: React.FC = () => {
   return (
     <div id="recent-work" className="text-center p-12 bg-white max-w-sm mx-auto rounded-lg shadow-md">
       <h2 className="text-4xl font-bold mb-4">Trabajo reciente</h2>

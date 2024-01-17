@@ -1,11 +1,10 @@
-// SecondCarousel.js
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const SecondCarousel = () => {
-  const settings = {
+const SecondCarousel: React.FC = () => {
+  const settings: SliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -37,3 +36,11 @@ const SecondCarousel = () => {
 };
 
 export default SecondCarousel;
+
+interface SliderSettings {
+  dots: boolean;
+  infinite: boolean;
+  speed: number;
+  slidesToShow: number;
+  slidesToScroll: number;
+}
