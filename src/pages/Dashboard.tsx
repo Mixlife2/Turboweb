@@ -2,7 +2,7 @@ import React from 'react';
 import Sidebar from '../components/Sidebar/Sidebar';
 import DesignOptions from '../components/DesignOptions/DesignOptions';
 
-function Dashboard() {
+const Dashboard: React.FC = () => {
   return (
     <div className="flex h-screen">
       <Sidebar />
@@ -15,6 +15,6 @@ function Dashboard() {
       </main>
     </div>
   );
-}
+};
 
 export default Dashboard;
