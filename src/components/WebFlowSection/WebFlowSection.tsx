@@ -1,7 +1,6 @@
-
 import React from 'react';
 
-const WebflowSection = () => {
+const WebflowSection: React.FC = () => {
   return (
     <div className="bg-black text-white p-12">
       <div className="max-w-3xl mx-auto">

@@ -25,7 +25,6 @@ function Sidebar() {
             <i className="fas fa-mobile-alt"></i>
             <span>Apps Móviles</span>
           </button>
-          {/* Agrega botones para otros servicios de diseño */}
         </div>
         <div className="mt-4">
           <span className="text-sm text-gray-400">Configuración</span>
@@ -33,7 +32,7 @@ function Sidebar() {
             <i className="fas fa-cog"></i>
             <span>Configuración General</span>
           </button>
-          {/* Agrega botones para otras configuraciones */}
+
         </div>
       </nav>
       <div className="mt-auto">
