@@ -5,6 +5,7 @@ interface HeaderSectionProps {
   mainTitle: string;
   subTitle: string;
   buttonText: string;
+  buttonLink: string;
 }
 
 const HeaderSection: React.FC<HeaderSectionProps> = ({ mainTitle, subTitle, buttonText }) => {

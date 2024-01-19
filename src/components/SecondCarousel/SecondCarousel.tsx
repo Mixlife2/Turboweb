@@ -17,19 +17,18 @@ const SecondCarousel: React.FC = () => {
       <h2 className="text-4xl font-bold mb-4">Segundo Carrusel</h2>
       <Slider {...settings}>
         <div>
-          <img src="https://placehold.it/561x400" alt="Image 1" />
+          <img src="https://placehold.it/561x400" alt="Image1" />
         </div>
         <div>
-          <img src="https://placehold.it/561x400" alt="Image 2" />
+          <img src="https://placehold.it/561x400" alt="Image2" />
         </div>
         <div>
-          <img src="https://placehold.it/561x400" alt="Image 3" />
+          <img src="https://placehold.it/561x400" alt="Image3" />
         </div>
         <div>
-          <img src="https://placehold.it/561x400" alt="Image 4" />
+          <img src="https://placehold.it/561x400" alt="Image4" />
         </div>
         
-        {/* Agrega más imágenes según sea necesario */}
       </Slider>
     </div>
   );
