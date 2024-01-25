@@ -4,7 +4,7 @@ const FeaturedLogos: React.FC = () => {
   return (
     <div className="bg-gray-200 py-4">
       <div className="flex flex-col items-center justify-center">
-        <p className="text-sm mb-2 font-semibold">Diseños comúnmente presentados por</p>
+        <p className="text-sm mb-2 font-semibold">Designs commonly featured by</p>
         <div className="flex space-x-4 items-center">
           <img src="https://placehold.co/100x30" alt="Placeholder image for Dribbble logo" className="h-6" />
           <img src="https://placehold.co/100x30" alt="Placeholder image for Lapa logo" className="h-6" />

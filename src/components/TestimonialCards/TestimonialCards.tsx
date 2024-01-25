@@ -20,7 +20,7 @@ const TestimonialCard: React.FC = () => {
           ></div>
         </div>
         <blockquote className="text-2xl font-bold text-center">
-          “TurboWeb demuestra que conocen el arte de la sutileza.”
+          “WeHook shows that they know the art of subtlety.”
         </blockquote>
         <p className="text-center mt-4 font-semibold">webflow</p>
       </div>

@@ -35,7 +35,7 @@ const categories: Category[] = [
 const DesignOptions: React.FC = () => {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Selecciona una categoría de diseño:</h2>
+      <h2 className="text-2xl font-bold mb-4">Select a design category:</h2>
       <div className="grid grid-cols-3 gap-4">
         {categories.map((category) => (
           <div key={category.id} className="mb-2">

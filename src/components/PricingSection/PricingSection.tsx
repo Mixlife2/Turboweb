@@ -7,39 +7,39 @@ const PricingSection: React.FC = () => {
     <div id="pricing" className="bg-gray-100 p-10">
       <div className="grid grid-cols-3 gap-4">
         <PricingCard
-          title="Estándar"
-          description="Una solicitud a la vez. Pausa o cancela en cualquier momento."
+          title="Standard"
+          description="One request at a time. Pause or cancel at any time."
           price="$4,995/m"
-          buttonText="Empezar"
+          buttonText="Begin"
           includedItems={[
-            "Una solicitud a la vez",
-            "Entrega promedio en 48 horas",
-            "Marcas ilimitadas",
-            "Usuarios ilimitados",
-            "Fotos de archivo ilimitadas a través de Shutterstock",
-            "Pagos fáciles con tarjeta de crédito",
-            "Pausar o cancelar en cualquier momento"
+            "One request at a time",
+            "Average delivery in 48 hours",
+            "Unlimited brands",
+            "Unlimited users",
+            "Unlimited stock photos via Shutterstock",
+            "Easy credit card payments",
+            "Pause or cancel at any time"
           ]}
         />
         <PricingCard
           title="Pro"
-          description="Duplica las solicitudes. Pausa o cancela en cualquier momento."
+          description="Duplicate requests. Pause or cancel at any time."
           price="$7,995/m"
-          buttonText="Empezar"
+          buttonText="Begin"
           includedItems={[
-            "Dos solicitudes a la vez",
-            "Entrega promedio en 48 horas",
-            "Marcas ilimitadas",
-            "Usuarios ilimitados",
-            "Fotos de archivo ilimitadas a través de Shutterstock",
-            "Pagos fáciles con tarjeta de crédito",
-            "Pausar o cancelar en cualquier momento"
+            "Two request at a time",
+            "Average delivery in 48 hours",
+            "Unlimited brands",
+            "Unlimited users",
+            "Unlimited stock photos via Shutterstock",
+            "Easy credit card payments",
+            "Pause or cancel at any time"
           ]}
         />
         <AdditionalInfo
-          title="Recomiende a un amigo y gane"
-          description="Gana 5% de comisiones recurrentes mensuales por cada referencia."
-          buttonText="Únete ahora"
+          title="Refer a friend and earn"
+          description="Earn 5% monthly recurring commissions for each referral."
+          buttonText="Join now"
           imageUrl="https://placehold.co/300x200"
           imageAlt="Two hands pulling on a rope, symbolizing a referral program"
         />

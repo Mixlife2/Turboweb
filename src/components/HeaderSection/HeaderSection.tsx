@@ -27,7 +27,7 @@ const HeaderSection: React.FC<HeaderSectionProps> = ({ mainTitle, subTitle, butt
         <p className="text-sm mt-4">Designs you'll <span className="text-red-500">❤️</span>, guaranteed</p>
       </section>
     </div>
-  );
+  ); 
 };
 
 export default HeaderSection;

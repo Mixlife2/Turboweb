@@ -14,7 +14,7 @@ const SecondCarousel: React.FC = () => {
 
   return (
     <div className="text-center p-12 bg-white">
-      <h2 className="text-4xl font-bold mb-4">Segundo Carrusel</h2>
+      <h2 className="text-4xl font-bold mb-4">Second Carrusel</h2>
       <Slider {...settings}>
         <div>
           <img src="https://placehold.it/561x400" alt="Image1" />

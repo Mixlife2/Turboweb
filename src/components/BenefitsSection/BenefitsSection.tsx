@@ -1,16 +1,21 @@
 import React from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 
 const BenefitsSection: React.FC = () => {
   return (
     <div id="benefits" className="bg-gray-100 text-gray-900 min-h-screen p-12">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-5xl font-bold mb-6">Beneficios de la Membresía</h1>
+        <h1 className="text-5xl font-bold mb-6">Membership Benefits</h1>
         <p className="text-xl mb-10">
-          Beneficios tan buenos que nunca necesitarás ir a ningún otro lugar para realizar tu diseño. En serio.
+        Benefits so good you'll never need to go anywhere else to get your design done. Oh really.
         </p>
-        <button className="bg-black text-white px-6 py-3 font-semibold rounded-md mb-20">
-          Ver planes
-        </button>
+        
+        <ScrollLink to="pricing" smooth={true} duration={500}>
+          <button className="bg-black text-white px-6 py-3 font-semibold rounded-md mb-20">
+          See plans
+          </button>
+        </ScrollLink>
+
         <div className="grid grid-cols-3 gap-10">
           <BenefitItem
             iconUrl="https://placehold.co/100x100"

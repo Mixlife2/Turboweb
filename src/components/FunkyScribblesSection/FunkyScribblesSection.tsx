@@ -6,7 +6,9 @@ const FunkyScribblesSection: React.FC = () => {
       <div className="text-center space-y-6">
         <h1 className="text-6xl font-bold">Funky Scribbles</h1>
         <p className="text-xl">A collection of funky vectorized scribbles to spice up your design projects.</p>
+        <a href="https://scribbbles.webflow.io/" target="_blank" rel="noopener noreferrer">
         <button className="bg-black text-white px-6 py-2 rounded-md">Check it out</button>
+      </a>
       </div>
       <div className="flex space-x-4 mt-12">
         <span className="text-sm font-semibold">Google</span>

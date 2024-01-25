@@ -18,24 +18,23 @@ const AnimatedIcons: FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
       <h1 className="text-5xl font-bold mb-6">
-        No reinventamos la rueda, solo diseñamos
+      We didn't reinvent the wheel, just design
       </h1>
       <p className="text-xl mb-12">
-        El diseño como lo conoces ya está disponible.<br/>
-        Diseña como quieras recién llegado.
+      Design as you know it is out the door. Design as you want it just arrived.
       </p>
       <div className="flex space-x-10">
         <IconoAnimado
           iconClass="fas fa-envelope fa-2x mb-4"
-          texto="Suscríbete a un plan y solicita tantos diseños como quieras."
+          texto="Subscribe to a plan and request as many designs as you want."
         />
         <IconoAnimado
           iconClass="fas fa-mobile-alt fa-2x mb-4"
-          texto="Reciba su diseño en unos pocos días hábiles en promedio, de lunes a viernes."
+          texto="Receive your design in a few business days on average, Monday to Friday."
         />
         <IconoAnimado
           iconClass="fas fa-sync fa-2x mb-4"
-          texto="Revisaremos los diseños hasta que estés 100% satisfecho."
+          texto="We will review the designs until you are 100% satisfied."
         />
       </div>
     </div>
