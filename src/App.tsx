@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import LoginPage from './pages/LoginPage';
 import Register from './pages/Register';
-
+import Footer from './components/Footer/Footer';
 
 function App(): JSX.Element {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -15,10 +15,9 @@ function App(): JSX.Element {
     <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
       <Router>
         <header className="flex justify-between items-center py-6">
-          <DarkModeToggle setIsDarkMode={setIsDarkMode} />
+          
           <Navbar />
         </header>
-
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -26,7 +25,10 @@ function App(): JSX.Element {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path='/register' element={<Register />}  />
           </Routes>
-        </main>
+        </main>        
+        <Footer/>
+          <DarkModeToggle setIsDarkMode={setIsDarkMode} />
+        
       </Router>
     </div>
   );

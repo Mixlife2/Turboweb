@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 
+const icons = require('../../assets/icons/recargar.gif');
+
+
+
 const BenefitsSection: React.FC = () => {
   return (
-    <div id="benefits" className="bg-gray-100 text-gray-900 min-h-screen p-12">
+    <div id="benefits" className="benefits-section text-gray-900 min-h-screen p-12">
       <div className="max-w-4xl mx-auto text-center">
         <h1 className="text-5xl font-bold mb-6">Membership Benefits</h1>
         <p className="text-xl mb-10">
@@ -18,9 +22,10 @@ const BenefitsSection: React.FC = () => {
 
         <div className="grid grid-cols-3 gap-10">
           <BenefitItem
-            iconUrl="https://placehold.co/100x100"
+            iconUrl={icons}
             title="Tablero de diseño"
             description="Agregue tantas solicitudes de diseño a su tablero como desee."
+            
           />
           <BenefitItem
             iconUrl="https://placehold.co/100x100"

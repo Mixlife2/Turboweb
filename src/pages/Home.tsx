@@ -13,7 +13,6 @@ import MembershipLevels from '../components/MembershipLevels/MembershipLevels';
 import PricingSection from '../components/PricingSection/PricingSection';
 import FAQsSection from '../components/FAQsSection/FAQsSection';
 import WebflowSection from '../components/WebFlowSection/WebFlowSection';
-import Footer from '../components/Footer/Footer';
 import Carousel from '../components/Carousel/Carousel';
 
 
@@ -49,9 +48,8 @@ const Home: React.FC = () => {
       <ApplicationsSection />
       <MembershipLevels />
       <PricingSection />
-      <FAQsSection />
       <WebflowSection />
-      <Footer />
+      <FAQsSection />
     </div>
   );
 };

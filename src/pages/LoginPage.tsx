@@ -13,7 +13,7 @@ function LoginPage() {
         email,
         password,
       });
-  
+
       if (error) {
         console.error('Error al iniciar sesión:', (error as any).message);
       } else if (data) {
@@ -24,8 +24,6 @@ function LoginPage() {
       console.error('Error al iniciar sesión', (error as any).message);
     }
   };
-  
-  
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -37,70 +35,92 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <div className="mb-8 text-center">
-        <img src="https://placehold.co/50x50" alt="Superlist logo" className="mx-auto mb-4" />
-        <h1 className="text-4xl font-semibold mb-2">Welcome to TurboWeb</h1>
-        <p className="text-gray-500">Made for teams.<br />Designed for people.</p>
-      </div>
-      <div className="bg-pink-100 p-8 rounded-lg shadow-md w-full max-w-xs">
-        <h1 className="text-2xl font-semibold mb-6 text-center">Login</h1>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            type="email"
-            placeholder="tu@email.com"
-            value={email}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            placeholder="••••••••"
-            value={password}
-            onChange={handleChange}
-          />
-          <p className="text-sm text-blue-500 cursor-pointer">
-            <a href="/olvido-contrasena" aria-label="Forgot Password">
-              ¿Olvidaste tu contraseña?
+    <div className="flex h-screen">
+      <div className="w-1/2 flex justify-center items-center bg-white">
+        <div className="w-96">
+          <div className="flex justify-center mb-10">
+            <img src="https://placehold.co/100x40" alt="Company logo" />
+          </div>
+          <div className="mb-6">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Usuario
+            </label>
+            <div className="mt-1 relative rounded-md shadow-sm">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <i className="fas fa-user text-gray-400"></i>
+              </div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                placeholder="Escribí tu mail o documento"
+                value={email}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className="mb-6">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+              Contraseña
+            </label>
+            <div className="mt-1 relative rounded-md shadow-sm">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                <i className="fas fa-lock text-gray-400"></i>
+              </div>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                className="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md"
+                placeholder="Escribí tu contraseña"
+                value={password}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+          <div className="flex justify-between items-center mb-6">
+            <div className="text-sm">
+              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+                ¿Olvidaste tu contraseña?
+              </a>
+            </div>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              onClick={handleLogin}
+            >
+              Iniciar sesión
+            </button>
+          </div>
+          <div className="mt-6">
+            <button
+              type="button"
+              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-transparent hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Registra tu negocio
+            </button>
+          </div>
+          <div className="mt-6 flex justify-center text-xs text-gray-500">
+            Protegido por reCAPTCHA -{' '}
+            <a href="#" className="text-indigo-600 hover:text-indigo-500">
+              Privacidad
+            </a>{' '}
+            -{' '}
+            <a href="#" className="text-indigo-600 hover:text-indigo-500">
+              Condiciones
             </a>
-          </p>
-          <p className="text-sm text-blue-500 cursor-pointer">
-            <a href="/register" aria-label="Register">
-              ¿No tienes una cuenta? Regístrate aquí.
-            </a>
-          </p>
-        </div>
-        <div className="flex items-center justify-center">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="button"
-            onClick={handleLogin}
-          >
-            LOG IN
-          </button>
+          </div>
         </div>
       </div>
-      <div className="flex flex-col items-center space-y-4 mt-4">
-        <button className="bg-blue-600 text-white w-64 py-2 rounded-full flex items-center justify-center shadow-lg">
-          <i className="fab fa-google mr-2"></i> Continue with Google
-        </button>
-        <button className="bg-black text-white w-64 py-2 rounded-full flex items-center justify-center shadow-lg">
-          <i className="fab fa-apple mr-2"></i> Sign in with Apple
-        </button>
-        <button className="bg-gray-300 text-gray-700 w-64 py-2 rounded-full flex items-center justify-center shadow-lg">
-          <i className="fas fa-envelope mr-2"></i> Continue with email
-        </button>
+      <div className="w-1/2 bg-blue-500 flex justify-center items-center">
+        <img
+          src="https://placehold.co/300x300"
+          alt="Illustration of online shopping with a shopping bag, coins, and a browser window."
+          className="max-w-xs"
+        />
       </div>
     </div>
   );
