@@ -8,6 +8,8 @@ function Navbar() {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [user, setUser] = useState(/* Obtener información del usuario de tu sistema de autenticación */);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -19,20 +21,23 @@ function Navbar() {
       setIsScrolled(scrollTop > 0);
     };
 
+    setIsAuthenticated(user !== null);
+
     window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(timeout);
     };
-  }, []);
+  }, [user, isAuthenticated, isScrolled, isVisible]);
 
   const navClass = isScrolled ? 'shadow-md' : '';
-  const visibilityClass = isVisible ? 'opacity-100 transition-opacity duration-500' : 'opacity-0';
+  const visibilityClass = isVisible && isAuthenticated ? 'opacity-100 transition-opacity duration-500' : 'opacity-0';
 
   const isHome = location.pathname === '/';
 
   return (
+    
     <div className={`fixed inset-x-0 bottom-0 mb-4 z-50 ${navClass} ${visibilityClass} ${isHome ? 'transition-opacity' : ''}`}>
       <div className="flex justify-center">
         <div className={`flex items-center justify-between px-4 py-2 bg-gray-950 rounded-full mx-auto w-max ${isHome ? 'transition-bg' : ''}`}>

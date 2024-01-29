@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent } from 'react';
 import { supabase } from '../lib/api';
 import { useNavigate } from 'react-router-dom';
 
-function LoginPage() {
+const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const navigate = useNavigate();
@@ -18,6 +18,11 @@ function LoginPage() {
         console.error('Error al iniciar sesión:', (error as any).message);
       } else if (data) {
         console.log('Inicio de sesión exitoso:', data.user);
+
+        // Cambia la URL sin recargar la página
+        window.history.replaceState({}, document.title, '/dashboard');
+
+        // Puedes agregar más lógica si es necesario antes de la redirección
         navigate('/dashboard');
       }
     } catch (error) {
