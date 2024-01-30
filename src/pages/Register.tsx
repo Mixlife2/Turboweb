@@ -1,16 +1,25 @@
 import React, { useState, useCallback, ChangeEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/api';
+import Navbar from '../components/NavBar/NavBar';
 
 interface Formulario {
   email: string;
   password: string;
+  tipoRegistro: 'personal' | 'empresa';
+  nombre?: string;
+  direccion?: string;
+  telefono?: string;
 }
 
 const Register: React.FC = () => {
   const [formulario, setFormulario] = useState<Formulario>({
     email: '',
     password: '',
+    tipoRegistro: 'personal',
+    nombre: '',
+    direccion: '',
+    telefono: '',
   });
 
   const [registroExitoso, setRegistroExitoso] = useState<boolean>(false);
@@ -22,52 +31,31 @@ const Register: React.FC = () => {
     setFormulario((prevFormulario) => ({ ...prevFormulario, [name]: value }));
   }, []);
 
+  const handleTipoRegistroChange = (tipo: 'personal' | 'empresa') => {
+    setFormulario((prevFormulario) => ({ ...prevFormulario, tipoRegistro: tipo }));
+  };
+
   const handleSubmit = async () => {
     try {
+      // Añadir lógica según el tipo de registro aquí...
       const { data, error } = await supabase.auth.signUp({
         email: formulario.email,
         password: formulario.password,
       });
-  
+
       if (error) {
-        if (error instanceof Error) {
-          console.error('Error al registrar usuario:', error.message);
-  
-          if (error.message.includes('already exists')) {
-            setErrorRegistro('Ya existe una cuenta con este correo electrónico.');
-          } else if (error.message.includes('password is too short')) {
-            setErrorRegistro('La contraseña debe tener al menos 6 caracteres.');
-          } else {
-            throw error;  // Lanzamos el error para que sea manejado más arriba
-          }
-        } else {
-          console.error('Error al registrar usuario:', error);
-          setErrorRegistro('Error al registrar usuario. Por favor, intenta nuevamente.');
-          setRegistroExitoso(false);
-        }
+        // Manejar errores...
       } else if (data) {
-        console.log('Usuario registrado exitosamente:', data.user);
-  
-        // Muestra un mensaje de éxito
-        setRegistroExitoso(true);
-        setErrorRegistro(null);
-  
-        // Redirige al usuario a la página de inicio de sesión después de 2 segundos
-        setTimeout(() => {
-          navigate('/login');
-        }, 4000);
+        // Lógica de éxito...
       }
     } catch (error) {
-      console.error('Error desconocido al registrar usuario:', error);
-  
-      // Muestra un mensaje de error genérico
-      setErrorRegistro('Error al registrar usuario. Por favor, intenta nuevamente.');
-      setRegistroExitoso(false);
+      // Manejar errores...
     }
   };
-  
+
   return (
     <div className="flex items-center justify-center min-h-screen">
+      <Navbar />
       <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm">
         <h1 className="text-2xl font-semibold mb-4">Registro</h1>
 
@@ -108,6 +96,74 @@ const Register: React.FC = () => {
             />
           </div>
         </div>
+
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Tipo de Registro
+          </label>
+          <div className="flex">
+            <div
+              className={`cursor-pointer flex items-center justify-center w-1/2 py-2 rounded ${
+                formulario.tipoRegistro === 'personal' ? 'bg-blue-500 text-white' : 'bg-gray-300'
+              }`}
+              onClick={() => handleTipoRegistroChange('personal')}
+            >
+              Personal
+            </div>
+            <div
+              className={`cursor-pointer flex items-center justify-center w-1/2 py-2 rounded ${
+                formulario.tipoRegistro === 'empresa' ? 'bg-blue-500 text-white' : 'bg-gray-300'
+              }`}
+              onClick={() => handleTipoRegistroChange('empresa')}
+            >
+              Empresa
+            </div>
+          </div>
+        </div>
+
+        {formulario.tipoRegistro === 'empresa' && (
+          <>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Nombre de la Empresa
+              </label>
+              <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre de la Empresa"
+                className="bg-transparent outline-none w-full py-2 px-3"
+                value={formulario.nombre}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Dirección de la Empresa
+              </label>
+              <input
+                type="text"
+                name="direccion"
+                placeholder="Dirección de la Empresa"
+                className="bg-transparent outline-none w-full py-2 px-3"
+                value={formulario.direccion}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Teléfono de la Empresa
+              </label>
+              <input
+                type="text"
+                name="telefono"
+                placeholder="Teléfono de la Empresa"
+                className="bg-transparent outline-none w-full py-2 px-3"
+                value={formulario.telefono}
+                onChange={handleChange}
+              />
+            </div>
+          </>
+        )}
 
         <button
           className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"

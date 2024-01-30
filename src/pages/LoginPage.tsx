@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
 import { supabase } from '../lib/api';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/NavBar/NavBar';
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>('');
@@ -39,8 +40,18 @@ const LoginPage: React.FC = () => {
     }
   };
 
+  const handleRegistroClick = () => {
+    navigate('/register');
+  };
+
+  const handleForgotPasswordClick = () => {
+    // Redirigir a la página de recuperación de contraseña
+    navigate('/recoverpassword');
+  };
+
   return (
     <div className="flex h-screen">
+      <Navbar />
       <div className="w-1/2 flex justify-center items-center bg-white">
         <div className="w-96">
           <div className="flex justify-center mb-10">
@@ -86,9 +97,10 @@ const LoginPage: React.FC = () => {
           </div>
           <div className="flex justify-between items-center mb-6">
             <div className="text-sm">
-              <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
+              
+              <button onClick={handleForgotPasswordClick} className="font-medium text-indigo-600 hover:text-indigo-500">
                 ¿Olvidaste tu contraseña?
-              </a>
+              </button>
             </div>
           </div>
           <div>
@@ -104,6 +116,7 @@ const LoginPage: React.FC = () => {
             <button
               type="button"
               className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-indigo-600 bg-transparent hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              onClick={handleRegistroClick}
             >
               Registra tu negocio
             </button>

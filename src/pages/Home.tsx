@@ -14,7 +14,8 @@ import PricingSection from '../components/PricingSection/PricingSection';
 import FAQsSection from '../components/FAQsSection/FAQsSection';
 import WebflowSection from '../components/WebFlowSection/WebFlowSection';
 import Carousel from '../components/Carousel/Carousel';
-
+import Navbar from '../components/NavBar/NavBar';
+import Footer from '../components/Footer/Footer';
 
 const image1 = require('../assets/images/carousel1.jpg');
 const image2 = require('../assets/images/carousel2.jpg');
@@ -28,6 +29,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
+      <Navbar />
       <HeaderSection
         mainTitle="WeHook"
         subTitle="A design and development agency, with a special touch."
@@ -50,6 +52,7 @@ const Home: React.FC = () => {
       <PricingSection />
       <WebflowSection />
       <FAQsSection />
+      <Footer/>
     </div>
   );
 };
