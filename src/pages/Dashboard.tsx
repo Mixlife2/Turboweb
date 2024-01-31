@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
         }
       } else {
         console.log('Sesión cerrada exitosamente');
-        // Después de cerrar sesión, redirige al usuario a la página de inicio de sesión
+        
         navigate('/login');
       }
     } catch (error) {

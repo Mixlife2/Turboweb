@@ -20,10 +20,8 @@ const LoginPage: React.FC = () => {
       } else if (data) {
         console.log('Inicio de sesión exitoso:', data.user);
 
-        // Cambia la URL sin recargar la página
         window.history.replaceState({}, document.title, '/dashboard');
 
-        // Puedes agregar más lógica si es necesario antes de la redirección
         navigate('/dashboard');
       }
     } catch (error) {
@@ -45,7 +43,6 @@ const LoginPage: React.FC = () => {
   };
 
   const handleForgotPasswordClick = () => {
-    // Redirigir a la página de recuperación de contraseña
     navigate('/recoverpassword');
   };
 

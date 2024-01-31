@@ -5,6 +5,7 @@ import Dashboard from './pages/Dashboard';
 import LoginPage from './pages/LoginPage';
 import Register from './pages/Register';
 import RecoverPassword from './pages/RecoverPassword';
+import PlansPage from './pages/PlansPage';
 
 function App(): JSX.Element {
   return (
@@ -14,6 +15,7 @@ function App(): JSX.Element {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/planspage" element={<PlansPage />} />
             <Route path='/register' element={<Register />} />
             <Route path='/recoverpassword' element={<RecoverPassword />} />
             <Route path="/dashboard" element={<Dashboard />} />
